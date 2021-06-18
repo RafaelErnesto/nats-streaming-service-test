@@ -9,8 +9,6 @@ export class TicketCreatedListener extends BaseListener<TicketCreatedEvent> {
     queueGroupName = 'payments-service'
 
     onMessage(data: TicketCreatedEvent['data'], message: Message): void  {
-        console.log('event')
-
         message.ack()
     }
     
