@@ -1,9 +1,11 @@
 import  { Message} from 'node-nats-streaming'
 import { BaseListener } from './base-listener'
+import { Subjects } from './subjects'
+import { TicketCreatedEvent } from './ticket-created-event'
 
 
-export class TicketCreatedListener extends BaseListener {
-    subject = 'ticket:created'
+export class TicketCreatedListener extends BaseListener<TicketCreatedEvent> {
+    readonly subject = Subjects.TicketCreated
     queueGroupName = 'payments-service'
 
     onMessage(data: any, message: Message): void  {
